@@ -1,0 +1,20 @@
+.icon_info ul li {
+    float: left;
+    width: 35px;
+    /* height: 35px; */
+    border-radius: 100%;
+    text-align: center;
+    line-height: 20px;
+    position: relative;
+    margin: 0px 0 0 0px;
+  }
+
+  .icon_info ul li .fa-exclamation-triangle {
+    color: #ff5722;
+    size: 50px;
+  }
+  
+  .icon_info ul li .fa-check {
+    color: #1ed085;
+    size: 50px;
+  }

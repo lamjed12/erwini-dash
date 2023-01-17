@@ -1,0 +1,224 @@
+
+
+<div class="full_container">
+  <div class="inner_container">
+    <app-sidebar></app-sidebar>
+    <div id="content">
+    <app-navbar></app-navbar>
+    <div class="midde_cont">
+        <div class="container-fluid">
+
+
+<div class="row column_title">
+    <div class="col-md-12">
+       <div class="page_title">
+          <h2>White Test </h2>
+       </div>
+    </div>
+    <div class="col-md-12">
+        <div class="white_shd full margin_bottom_30">
+          <div class="full graph_head">
+            <div class="button_block margin_0">
+              <button
+                type="button"
+                class="btn cur-p btn-primary"
+                data-toggle="modal"
+                data-target="#myModal"
+              >
+                Add New +
+              </button>
+            </div>
+          </div>
+          <div class="table_section padding_infor_info">
+            <div class="table-responsive-sm">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <!-- <th>Name</th> -->
+                    <th>Domaine</th>
+                    <th>Technologie</th>
+                    <th>Level</th>
+                    <th>titre</th>
+                    <th>Duration</th>
+                    <th>Code</th>
+                    <th>Nb Questions</th>
+                    <th>Language</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let white_test of white_tests">
+                  <tr>
+                    <td>{{white_test._id}}</td>
+                    <td>{{white_test.domaine}}</td>
+                    <td>{{white_test.technologie}}</td>
+                    <td>{{white_test.level}}</td>
+                    <td>{{white_test.titre}}</td>
+                    <td>{{white_test.duration}}</td>
+                    <!-- <td>3 years</td> -->
+                    <td>{{white_test.code}}</td>
+                    <td>{{white_test.nbQuestion}}</td>
+                    <td>{{white_test.langue}}</td>
+                    <td class="icon_info">
+                      <ul>
+                        <li>
+                          <i
+                            class="fa fa-refresh"
+                            aria-hidden="true"
+                            data-toggle="modal"
+                            data-target="#myModal"
+                          ></i>
+                        </li>
+                        <li>
+                          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                        </li>
+                        <li>
+                          <i
+                            class="fa fa-trash"
+                            data-toggle="modal"
+                            data-target="#deleteModal"
+                            aria-hidden="true"
+                          ></i>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">New white test</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <form #myModal="ngForm"  (ngSubmit)="onAddMission(myModal)" >
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div class="form-group">
+              <label>Name</label>
+              <input
+                ngModel
+                type="text"
+                class="form-control"
+                id="formGroupExampleInput"
+                placeholder="Name"
+                name="code"
+              />
+            </div>
+            <div class="form-group">
+              <label>Domaine</label>
+              <input
+                type="text"
+                ngModel
+                class="form-control"
+                id="formGroupExampleInput2"
+                placeholder="Domaine"
+                name="domaine"
+              />
+            </div>
+    
+            <div class="form-group">
+              <label>Technologie</label>
+              <input
+                type="text"
+                ngModel
+                class="form-control"
+                id="formGroupExampleInput"
+                placeholder="Technologie"
+                name="technologie"
+              />
+            </div>
+            <div class="form-group">
+              <label>Title</label>
+              <input
+                type="text"
+                ngModel
+                class="form-control"
+                id="formGroupExampleInput2"
+                placeholder="Title"
+                name="titre"
+              />
+            </div>
+            <div class="form-group">
+              <label>Duration</label>
+              <input
+                type="text"
+                ngModel
+                class="form-control"
+                id="formGroupExampleInput2"
+                placeholder="duration"
+                name="duration"
+              />
+            </div>
+            <div class="form-group">
+              <label>Language</label>
+              <input
+                type="text"
+                ngModel
+                name="langue"
+                class="form-control"
+                id="formGroupExampleInput2"
+                placeholder="langue"
+              />
+            </div>
+            <!-- <div class="form-group">
+              <label>Prise</label>
+              <input
+                type="text"
+                name="fee"
+                ngModel
+                class="form-control"
+                id="formGroupExampleInput2"
+                placeholder="Prise"
+              />
+            </div>  -->
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button  type="submit" class="btn btn-danger">
+              Ok
+            </button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="modal fade" id="deleteModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Delete White Test</h4>
+            <button type="button" class="close" data-dismiss="modal">
+              &times;
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">Are you sure to delete this White Test?..</div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">
+              Ok
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+</div>
+</div>
+</div>
