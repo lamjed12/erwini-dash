@@ -35,35 +35,35 @@
           <table class="table">
             <thead>
               <tr>
-                <th>#</th>
+                <!-- <th>#</th> -->
                 <th>Name</th>
                 <th>Phone</th>
+                <th>Password</th>
                 <th>Pus</th>
                 <th>CodePuk</th>
                 <th>City</th>
                 <th>Region</th>
-                <th>Nb Pompe</th>
                 <th>Nb Puit</th>
+                <th>Nb Pompe</th>
                 <th>Nb Vanne</th>
-                <th>Nb Multivanne</th>
                 <th>Points</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody *ngFor="let agriculteur of agriculteurs">
               <tr>
-                <td>{{agriculteur._id}}</td>
+                <!-- <td>{{agriculteur._id}}</td> -->
                 <td>{{agriculteur.Name}}</td>
                 <td>{{agriculteur.Phone}}</td>
+                <td >********</td>
                 <td>{{agriculteur.Pus}}</td>
                 <td>{{agriculteur.CodePuk}}</td>
                 <td>{{agriculteur.City}}</td>
                 <td>{{agriculteur.Region}}</td>
-                <td>{{agriculteur.NbPompe}}</td>
                 <td>{{agriculteur.NbPuit}}</td>
-                <td>{{agriculteur.NbVanne}}</td>
-                <td>{{agriculteur.NbMultivanne}}</td>
-               
+                <td>{{agriculteur.NbPompe}}</td>
+                <td>{{agriculteur.NbVanne }}</td>
+                
                 <td>{{agriculteur.Points}}</td>
                 <td class="icon_info">
                   <ul>
@@ -79,9 +79,9 @@
                     ></i> -->
                   </a> 
                     </li>
-                    <li  >
+                    <!-- <li  >
                       <a class="fa fa-plus-circle" data-target="#" aria-hidden="true"></a>
-                    </li>
+                    </li> -->
                     <li>
                       <a
                         class="fa fa-trash dropdown-item"
@@ -145,7 +145,7 @@
             class="form-control"
             id="formGroupExampleInput"
             placeholder="Name"
-            name="name"
+            name="Name"
           />
         </div>
         <div class="form-group">
@@ -156,10 +156,20 @@
             class="form-control"
             id="formGroupExampleInput2"
             placeholder="Phone"
-            name="phone"
+            name="Phone"
           />
         </div>
-
+        <div class="form-group">
+          <label>Password</label>
+          <input 
+          type = "password"
+            name="Password"
+            ngModel
+            class="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Password"
+          />
+        </div>
         <div class="form-group">
           <label>Pus</label>
           <input
@@ -168,7 +178,7 @@
             class="form-control"
             id="formGroupExampleInput"
             placeholder="Pus"
-            name="pus"
+            name="Pus"
           />
         </div>
         <div class="form-group">
@@ -179,7 +189,7 @@
             class="form-control"
             id="formGroupExampleInput2"
             placeholder="CodePuk"
-            name="codePuk"
+            name="CodePuk"
           />
         </div>
         <div class="form-group">
@@ -190,7 +200,7 @@
             class="form-control"
             id="formGroupExampleInput2"
             placeholder="City"
-            name="city"
+            name="City"
           />
         </div>
         <div class="form-group">
@@ -198,28 +208,17 @@
           <input
             type="text"
             ngModel
-            name="region"
+            name="Region"
             class="form-control"
             id="formGroupExampleInput2"
             placeholder="Region"
           />
         </div>
         <div class="form-group">
-          <label>NbPompe</label>
-          <input
-            type="text"
-            name="nbPompe"
-            ngModel
-            class="form-control"
-            id="formGroupExampleInput2"
-            placeholder="NbPompe"
-          />
-        </div> 
-        <div class="form-group">
           <label>NbPuit</label>
           <input
             type="text"
-            name="nbPuit"
+            name="NbPuit"
             ngModel
             class="form-control"
             id="formGroupExampleInput2"
@@ -227,32 +226,33 @@
           />
         </div> 
         <div class="form-group">
+          <label>NbPompe</label>
+          <input
+            type="text"
+            name="NbPompe"
+            ngModel
+            class="form-control"
+            id="formGroupExampleInput2"
+            placeholder="NbPompe"
+          />
+        </div> 
+        <div class="form-group">
           <label>NbVanne</label>
           <input
             type="text"
-            name="nbVanne"
+            name="NbVanne"
             ngModel
             class="form-control"
             id="formGroupExampleInput2"
             placeholder="NbVanne"
           />
         </div>
-        <div class="form-group">
-          <label>NbMultivanne</label>
-          <input
-            type="text"
-            name="nbMultivanne"
-            ngModel
-            class="form-control"
-            id="formGroupExampleInput2"
-            placeholder="NbMultianne"
-          />
-        </div> 
+         
         <div class="form-group">
           <label>Points</label>
           <input
             type="text"
-            name="points"
+            name="Points"
             ngModel
             class="form-control"
             id="formGroupExampleInput2"
@@ -311,7 +311,7 @@
         
         <form #editForm="ngForm">
        
-            <!-- <div class="form-group">
+            <div class="form-group">
               <label for="_id">Id</label>
               <input
                 ngModel ="{{editMission?._id}}"
@@ -320,14 +320,14 @@
                 
                 name="_id"
               />
-            </div> -->
+            </div>
             <div class="form-group">
               <label for="Name">Name</label>
               <input
                 ngModel ="{{editMission?.Name}}"
                 type="text"
                 class="form-control"
-                name="name"
+                name="Name"
               />
             </div>
             <div class="form-group">
@@ -338,10 +338,21 @@
                 class="form-control"
                 id="formGroupExampleInput2"
                 placeholder="Phone"
-                name="phone"
+                name="Phone"
               />
             </div>
-    
+  
+            <div class="form-group">
+              <label for="Password">Password</label>
+              <input
+                type="password"
+                ngModel="{{editMission?.Password}}"
+                name="Password"
+                class="form-control"
+                id="formGroupExampleInput2"
+                placeholder="Password"
+              />
+            </div>
             <div class="form-group">
               <label  for="Pus">Pus</label>
               <input
@@ -349,7 +360,7 @@
                 ngModel ="{{editMission?.Pus}}"
                 class="form-control"
                
-                name="pus"
+                name="Pus"
               />
             </div>
             <div class="form-group">
@@ -358,7 +369,7 @@
                 type="text"
                 ngModel="{{editMission?.CodePuk}}"
                 class="form-control"
-                name="codePuk"
+                name="CodePuk"
               />
             </div>
             <div class="form-group">
@@ -369,7 +380,7 @@
                 class="form-control"
                 id="formGroupExampleInput2"
                 placeholder="City"
-                name="city"
+                name="City"
               />
             </div>
             <div class="form-group">
@@ -377,21 +388,10 @@
               <input
                 type="text"
                 ngModel="{{editMission?.Region}}"
-                name="region"
+                name="Region"
                 class="form-control"
                 id="formGroupExampleInput2"
                 placeholder="Region"
-              />
-            </div>
-            <div class="form-group">
-              <label for="NbPompe">NbPompe</label>
-              <input
-                type="text"
-                ngModel="{{editMission?.NbPompe}}"
-                name="nbPompe"
-                class="form-control"
-                id="formGroupExampleInput2"
-                placeholder="NbPompe"
               />
             </div>
             <div class="form-group">
@@ -399,10 +399,21 @@
               <input
                 type="text"
                 ngModel="{{editMission?.NbPuit}}"
-                name="nbPuit"
+                name="NbPuit"
                 class="form-control"
                 id="formGroupExampleInput2"
                 placeholder="NbPuit"
+              />
+            </div>
+            <div class="form-group">
+              <label for="NbPompe">NbPompe</label>
+              <input
+                type="text"
+                ngModel="{{editMission?.NbPompe}}"
+                name="NbPompe"
+                class="form-control"
+                id="formGroupExampleInput2"
+                placeholder="NbPompe"
               />
             </div>
             <div class="form-group">
@@ -410,29 +421,19 @@
               <input
                 type="text"
                 ngModel="{{editMission?.NbVanne}}"
-                name="nbVanne"
+                name="NbVanne"
                 class="form-control"
                 id="formGroupExampleInput2"
                 placeholder="NbVanne"
               />
             </div>
-            <div class="form-group">
-              <label for="NbMultivanne">NbMultivanne</label>
-              <input
-                type="text"
-                ngModel="{{editMission?.NbMultivanne}}"
-                name="nbMultivanne"
-                class="form-control"
-                id="formGroupExampleInput2"
-                placeholder="NbMultivanne"
-              />
-            </div>
+            
            
             <div class="form-group">
               <label for="Points">Points</label>
               <input
                 type="text"
-                name="points"
+                name="Points"
                 ngModel ="{{editMission?.Points}}" 
                 class="form-control"
               />

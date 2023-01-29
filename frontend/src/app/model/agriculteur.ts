@@ -7,9 +7,9 @@ export class agriculteur {
     CodePuk: String | undefined
     City: String | undefined
     Region : String | undefined
-    NbPompe : String | undefined
     NbPuit  : String | undefined
+    NbPompe : String | undefined
     NbVanne : String | undefined
-    NbMultivanne  : String | undefined
+    Password  : String | undefined
     Points  : String | undefined
 }

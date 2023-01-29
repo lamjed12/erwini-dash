@@ -11,17 +11,21 @@ import { NgForm } from '@angular/forms';
   templateUrl: './agriculteurs.component.html',
   styleUrls: ['./agriculteurs.component.css']
 })
+ 
 export class agriculteursComponent implements OnInit {
   public agriculteurs : agriculteur[] | undefined
   deleteCommand: any;
   addProduct: any;
   editMission: any;
   constructor(private agriculteurService: agriculteurService,) { }
+  public isinputshown : boolean = false;
+  
+  public hideinput(): void{
+    this.isinputshown=false;   }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
    this.getProduit();
   }
-
 
   public getProduit(): void {
     this.agriculteurService.getagriculteur().subscribe({
@@ -76,6 +80,7 @@ export class agriculteursComponent implements OnInit {
       console.log(mission)
 
       this.editMission = mission;
+      console.log("22222",this.deleteCommand._id)
       button.setAttribute('data-target', '#updateMissionModal');
 
       
@@ -91,13 +96,13 @@ public onAddMission(addForm: NgForm): void {
   console.log("addForm.valueaddForm.valueaddForm.value")
     console.log(addForm.value)
  //   document.getElementById('add-mission-form')!.click();
-    const fd = new FormData();
-    fd.append('nom',addForm.value.nom)
-    fd.append('categorie',addForm.value.categorie)
-    fd.append('description',addForm.value.description)
-    fd.append('marque',addForm.value.marque)
-    fd.append('quantite',addForm.value.quantite)
-    fd.append('prix',addForm.value.prix)
+    // const fd = new FormData();
+    // fd.append('nom',addForm.value.nom)
+    // fd.append('categorie',addForm.value.categorie)
+    // fd.append('description',addForm.value.description)
+    // fd.append('marque',addForm.value.marque)
+    // fd.append('quantite',addForm.value.quantite)
+    // fd.append('prix',addForm.value.prix)
     
   
     this.agriculteurService.addagriculteur(addForm.value).subscribe({
@@ -118,6 +123,8 @@ public onAddMission(addForm: NgForm): void {
   } 
 
   public onUpdateProduit(editForm: NgForm) : void{
+
+    console.log("editForm.value._ideditForm.value._ideditForm.value._id")
     console.log(editForm.value._id)
     
       
@@ -154,7 +161,7 @@ public onAddMission(addForm: NgForm): void {
         }
     });
 
- 
+    
 
   }
 }
