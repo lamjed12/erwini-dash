@@ -457,3 +457,8 @@ ul.inbox-nav {
     padding: 0 0 20px 0;
     width: 100%;
 }
+
+.img-resp{
+    margin-right: 10px; /* Adds 10 pixels of space to the right of the image */
+
+}

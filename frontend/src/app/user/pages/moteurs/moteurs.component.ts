@@ -1,38 +1,46 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { agriculteurService } from '../../../services/agriculteur.service';
-import { agriculteur } from '../../../model/agriculteur';
+import { puitService } from '../../../services/puit.service';
+import { puit } from '../../../model/puit';
 import { NgForm } from '@angular/forms';
+import { Pompe } from 'src/app/model/pompe';
+import { PompeService } from 'src/app/services/moteur.service';
 
 
 
 @Component({
-  selector: 'app-agriculteurs',
-  templateUrl: './agriculteurs.component.html',
-  styleUrls: ['./agriculteurs.component.css']
+  selector: 'app-moteurs',
+  templateUrl: './moteurs.component.html',
+  styleUrls: ['./moteurs.component.css']
 })
  
-export class agriculteursComponent implements OnInit {
-  public agriculteurs : agriculteur[] | undefined
+export class moteursComponent implements OnInit {
+  public puits : puit[] | undefined;
+  
+
+  public pompes : Pompe[] | undefined;
   deleteCommand: any;
   addProduct: any;
   editMission: any;
-  constructor(private agriculteurService: agriculteurService,) { }
-  public isinputshown : boolean = false;
+  siwtchSecurity: boolean = false;
+  toggleState = false;
   
-  public hideinput(): void{
-    this.isinputshown=false;   }
+  constructor(private puitService: puitService,private pompeService: PompeService,) { }
+
+  
+  
 
     ngOnInit(): void {
-   this.getProduit();
+   this.getPuits();
+   this.getPompes();
   }
 
-  public getProduit(): void {
-    this.agriculteurService.getagriculteur().subscribe({
-      next: (response: agriculteur[]) => {
+  public getPuits(): void {
+    this.puitService.getpuit().subscribe({
+      next: (response: puit[]) => {
         console.log(response);
         console.log("responseresponseresponseresponseresponseresponse");
-        this.agriculteurs = response;
+        this.puits = response;
         
         },
       error: (error: HttpErrorResponse) => {
@@ -43,6 +51,25 @@ export class agriculteursComponent implements OnInit {
         }
     });
   }
+  
+
+  public getPompes(): void {
+    this.pompeService.getpompes().subscribe({
+      next: (response: Pompe[]) => {
+        console.log(response);
+        console.log("responseresponseresponseresponseresponseresponse");
+        this.pompes = response;
+        
+        },
+      error: (error: HttpErrorResponse) => {
+          alert(error.message);
+        },
+      complete: () => {
+        console.log('complete');
+        }
+    });
+  }
+  
 
 
   public onOpenModal1(mission:any, mode: string): void {
@@ -105,10 +132,10 @@ public onAddMission(addForm: NgForm): void {
     // fd.append('prix',addForm.value.prix)
     
   
-    this.agriculteurService.addagriculteur(addForm.value).subscribe({
+    this.puitService.addpuit(addForm.value).subscribe({
       next: (response: any) => {
         console.log(response);
-        this.getProduit();
+        this.getPuits();
         addForm.reset();
       },
       error: (error: HttpErrorResponse) => {
@@ -128,10 +155,10 @@ public onAddMission(addForm: NgForm): void {
     console.log(editForm.value._id)
     
       
-       this.agriculteurService.updateagriculteur(editForm.value).subscribe({
+       this.puitService.updatepuit(editForm.value).subscribe({
         next: (response: any) => {
           console.log(response);
-          this.getProduit();
+          this.getPuits();
           editForm.reset();
         },
         error: (error: HttpErrorResponse) => {
@@ -146,7 +173,7 @@ public onAddMission(addForm: NgForm): void {
 
   onDeleteMission(id : any){
     console.log('id',id);
-    this.agriculteurService.deleteagriculteur(id).subscribe({
+    this.puitService.deletepuit(id).subscribe({
       next: (response: any) => {
         console.log(response);
 
@@ -156,7 +183,7 @@ public onAddMission(addForm: NgForm): void {
           alert(error.message);
         },
       complete: () => {
-        this.getProduit();
+        this.getPuits();
         console.log('complete');
         }
     });
@@ -164,4 +191,7 @@ public onAddMission(addForm: NgForm): void {
     
 
   }
+ 
+
+
 }
