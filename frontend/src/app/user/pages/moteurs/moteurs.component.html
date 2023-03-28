@@ -56,16 +56,18 @@
                           <th>Action</th>
                         </tr>
                       </thead>
-                      <tbody *ngFor="let moteur of puits">
+                      <tbody *ngFor="let puit of puits">
                         <tr>
-                          <td>{{moteur._id}}</td>
-                          <td>{{moteur.Pus}}</td>
+                          <td>{{puit._id}}</td>
+                          <td>{{puit.Pus}}</td>
 
                           <td><label class="switch">
                               <input type="checkbox">
                               <span class="slider round"></span>
                             </label></td>
                           <td>
+
+                            <i class="fa fa-wifi" style="font-size:44px"></i>
                             <div class="sensor">
                               <div class="sensor-header">
                                 <img src="assets\images\layout_img\sensor.png">
@@ -87,11 +89,8 @@
                               </div>
                             </div>
                           </td>
-                          <mat-slide-toggle [(ngModel)]="toggleState" color="accent">
-                            Toggle switch
-                          </mat-slide-toggle>
                           <td>
-                            <div  role="alert">
+                            <div class="alert alert-warning" role="alert">
                               <i class="fa fa-exclamation-triangle"></i>
                               <p class="alert-text">Security Alert</p>
                             </div>
@@ -105,20 +104,16 @@
                             <ul>
                               <li>
                                 <a class="dropdown-item fa fa-refresh" data-target="#updatePuitModal"
-                                  data-toggle="modal" href="javascript:void(0)" (click)="onOpenModal1(moteur,'edit')">
+                                  data-toggle="modal" href="javascript:void(0)" (click)="onOpenModal1(puit,'edit')">
 
                                 </a>
                               </li>
                               <li>
                                 <a class="fa fa-plus-circle" data-target="#addPuitModel" aria-hidden="true"
                                   data-toggle="modal" href="javascript:void(0)"
-                                  (click)="onOpenModal1(moteur,'edit')"></a>
+                                  (click)="onOpenModal1(puit,'addNewPuit')"></a>
                               </li>
-                              <!-- <li>
-                                <a class="fa fa-trash dropdown-item" data-toggle="modal" data-target="#deleteCommand"
-                                  aria-hidden="true" href="javascript:void(0)"
-                                  (click)="onOpenModal1(moteur,'delete')"></a>
-                              </li> -->
+
                             </ul>
                           </td>
                         </tr>
@@ -143,21 +138,32 @@
                 </div>
                 <div class="modal-body">
 
-                  <form #editForm="ngForm">
+                  <form #addPlanifierPuitForm="ngForm" (ngSubmit)="addNewAppointmenPuit(addPlanifierPuitForm)">
 
                     <div>
-                      
-                      
+
+
                       <label for="datetimepicker">Select date start:</label>
-                      <input type="datetime-local" id="datetimepicker" name="datetimepicker" step="60">
+                      <input type="datetime-local"  min="{{dateToday() | date:'yyyy-MM-ddTHH:mm'}}" id="datetimepicker" name="date_debut" [(ngModel)]="startDate" step="60">
                     </div>
                     <div>
                       <label for="datetimepicker">Select date off :</label>
 
-                      <input type="datetime-local" id="datetimepicker" name="datetimepicker" step="60">
+                      <input type="datetime-local" [min]="startDate"  id="datetimepicker" name="date_fin" [(ngModel)]="endDate" step="60" [min]="startDate" [disabled]="!startDate" >
                     </div>
 
 
+                    <!-- <div>
+                      <label for="datetimepicker">Start Date:</label>
+                      <input type="datetime-local" id="datetimepicker" name="date_debut" [(ngModel)]="startDate" min="{{dateToday() | date:'yyyy-MM-ddTHH:mm'}}">
+                    </div>
+                    
+                    <div>
+                      <label for="datetimepicker">End Date:</label>
+                      <input type="datetime-local" id="datetimepicker" name="date_fin" [(ngModel)]="endDate" [min]="startDate" [disabled]="!startDate" >
+                    </div> -->
+
+                   
 
                     <button type="submit" class="btn btn-danger">
                       SAVE
@@ -186,13 +192,42 @@
 
                   <form #editForm="ngForm">
 
+                    <div class="table_section padding_infor_info">
+                      <div class="table-responsive-sm">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <!-- <th>Id</th> -->
+                              <th>Date Debut</th>
+                              <th>Date Fin</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let agenda of agendaPuits">
+                            <tr>
+                              <!-- <td>{{agenda._id}}</td> -->
+                              <td>{{agenda.date_debut}}</td>
+                              <td>{{agenda.date_fin}}</td>
+                              <td class="icon_info">
+                                <ul>
+                                  <li>
+                                    <a class="dropdown-item fa fa-trash" data-target="#updateMissionModal"
+                                      (click)="deleteAppointmentPuit(agenda._id)"></a>
+                                  </li>
 
+                                </ul>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
 
 
                   </form>
-                  <button type="submit" class="btn btn-danger">
+                  <!-- <button type="submit" class="btn btn-danger">
                     OK
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>
@@ -210,44 +245,23 @@
               <div class="white_shd full margin_bottom_30">
                 <div class="full graph_head">
                   <div class="button_block margin_0">
-                    <!-- <button
-            type="button"
-            class="btn cur-p btn-primary"
-            data-toggle="modal"
-            data-target="#myModal"
-        
-          >
-            Add New +
-          </button> -->
-                    <!-- Rounded switch -->
 
                   </div>
                 </div>
-                <!-- <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-      </label> -->
 
                 <div class="table_section padding_infor_info">
                   <div class="table-responsive-sm">
                     <table class="table">
                       <thead>
                         <tr>
-                          <!-- <th>#</th> -->
                           <th>Pompe</th>
-                          <!-- <th>Phone</th>
-                <th>Password</th> -->
-                          <!-- <th>Pus</th> -->
                           <th>Start/Stop</th>
-                          <!-- <th>connection</th> -->
-                          <!-- <th>Agenda</th> -->
-
                           <th>Action</th>
                         </tr>
                       </thead>
-                      <tbody *ngFor="let moteur of pompes">
+                      <tbody *ngFor="let pompe of pompes">
                         <tr>
-                          <td>{{moteur._id}}</td>
+                          <td>{{pompe._id}}</td>
 
                           <td><label class="switch">
                               <input type="checkbox">
@@ -258,16 +272,18 @@
                           <td class="icon_info">
                             <ul>
                               <li>
-                                <a class="dropdown-item fa fa-refresh" data-target="#updateMissionModal"
-                                  data-toggle="modal" href="javascript:void(0)" (click)="onOpenModal1(moteur,'edit')">
+                                <a class="dropdown-item fa fa-refresh" data-target="#updatePompeModal"
+                                  data-toggle="modal" href="javascript:void(0)" (click)="onOpenModal2(pompe,'edit')">
 
                                 </a>
                               </li>
                               <li>
-                                <a class="fa fa-plus-circle" data-target="#addMissionModel" aria-hidden="true"
+                                <a class="fa fa-plus-circle" data-target="#addPompeModel" aria-hidden="true"
                                   data-toggle="modal" href="javascript:void(0)"
-                                  (click)="onOpenModal1(moteur,'edit')"></a>
+                                  (click)="onOpenModal2(pompe,'addNewPompe')"></a>
                               </li>
+
+
 
                             </ul>
                           </td>
@@ -331,30 +347,29 @@
 
 
 
-          <div class="modal fade" id="addMissionModel" tabindex="-1" role="dialog"
-            aria-labelledby="addMissionModelLabel" aria-hidden="true">
+          <div class="modal fade" id="addPompeModel" tabindex="-1" role="dialog" aria-labelledby="addPompeModelLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="addMissionModelLabel">Ajouter planifier du pompe</h5>
+                  <h5 class="modal-title" id="addPompeModelLabel">Ajouter planifier de pompe</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
 
-                  <form #editForm="ngForm">
+                  <form #addPlanifierPompeForm="ngForm" (ngSubmit)="addNewAppointmenPompe(addPlanifierPompeForm)">
 
                     <div>
-                      <label for="datetimepicker">Select date start:</label>
-                      <input type="datetime-local" id="datetimepicker" name="datetimepicker" step="60">
+                      <label for="datetimepicker">Start Date:</label>
+                      <input type="datetime-local" id="datetimepicker" name="date_debut" [(ngModel)]="startDate" min="{{dateToday() | date:'yyyy-MM-ddTHH:mm'}}">
                     </div>
+                    
                     <div>
-                      <label for="datetimepicker">Select date off :</label>
-
-                      <input type="datetime-local" id="datetimepicker" name="datetimepicker" step="60">
+                      <label for="datetimepicker">End Date:</label>
+                      <input type="datetime-local" id="datetimepicker" name="date_fin" [(ngModel)]="endDate" [min]="startDate" [disabled]="!startDate" >
                     </div>
-
 
 
                     <button type="submit" class="btn btn-danger">
@@ -370,12 +385,12 @@
 
 
 
-          <div class="modal fade" id="updateMissionModal" tabindex="-1" role="dialog"
-            aria-labelledby="updateMissionModalLabel" aria-hidden="true">
+          <div class="modal fade" id="updatePompeModal" tabindex="-1" role="dialog"
+            aria-labelledby="updatePompeModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="updateMissionModalLabel">Modifier les planification du Pompe</h5>
+                  <h5 class="modal-title" id="updatePompeModalLabel">Modifier les planification de pompe</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -384,13 +399,42 @@
 
                   <form #editForm="ngForm">
 
+                    <div class="table_section padding_infor_info">
+                      <div class="table-responsive-sm">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <!-- <th>Id</th> -->
+                              <th>Date Debut</th>
+                              <th>Date Fin</th>
+                              <th>Action</th>
+                            </tr>
+                          </thead>
+                          <tbody *ngFor="let agenda of agendaPompes">
+                            <tr>
+                              <!-- <td>{{agenda._id}}</td> -->
+                              <td>{{agenda.date_debut}}</td>
+                              <td>{{agenda.date_fin}}</td>
+                              <td class="icon_info">
+                                <ul>
+                                  <li>
+                                    <a class="dropdown-item fa fa-trash" data-target="#updateMissionModal"
+                                      (click)="deleteAppointmentPompe(agenda._id)"></a>
+                                  </li>
 
+                                </ul>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
 
 
                   </form>
-                  <button type="submit" class="btn btn-danger">
-                    OK
-                  </button>
+                  <!-- <button type="submit" class="btn btn-danger">
+                  OK
+                </button> -->
                 </div>
               </div>
             </div>

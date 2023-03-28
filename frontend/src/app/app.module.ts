@@ -19,7 +19,8 @@ import { moteursComponent } from './user/pages/moteurs/moteurs.component';
 import { vannesComponent } from './user/pages/vannes/vannes.component';
 
 
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+// import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
 
 
 // import { AgmCoreModule } from '@agm/core';
@@ -43,7 +44,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    // MatSlideToggleModule,
     BrowserModule,
+
     FormsModule,
     // AgmCoreModule.forRoot({
     //   // please get your own API key here:
