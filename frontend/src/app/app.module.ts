@@ -9,7 +9,7 @@ import { SidebarComponent } from './user/shared/sidebar/sidebar.component';
 import { DashbordComponent } from './user/pages/dashbord/dashbord.component';
 
 
-import { WhiteTestComponent } from './user/pages/white-test/white-test.component';
+import { HistoriquesComponent } from './user/pages/historiques/historiques.component';
 import { ProfilComponent } from './user/shared/profil/profil.component';
 import { LoginComponent } from './user/pages/login/login.component';
 import { HttpClientModule } from "@angular/common/http";
@@ -17,6 +17,7 @@ import { FormsModule }   from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { moteursComponent } from './user/pages/moteurs/moteurs.component';
 import { vannesComponent } from './user/pages/vannes/vannes.component';
+
 
 
 // import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -34,10 +35,10 @@ import { vannesComponent } from './user/pages/vannes/vannes.component';
     DashbordComponent,
     moteursComponent,
     vannesComponent,
-    WhiteTestComponent,
     ProfilComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    HistoriquesComponent
   ],
   imports: [
     BrowserModule,

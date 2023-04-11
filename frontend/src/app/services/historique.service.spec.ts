@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { WhiteTestService } from './white-test.service';
+import { HistoriqueService } from './historique.service';
 
-describe('WhiteTestService', () => {
-  let service: WhiteTestService;
+describe('HistoriqueService', () => {
+  let service: HistoriqueService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(WhiteTestService);
+    service = TestBed.inject(HistoriqueService);
   });
 
   it('should be created', () => {

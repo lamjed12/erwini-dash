@@ -1,15 +1,14 @@
+import { zone } from "./zone"
+// import { mesure } from "./mesure"
 export class vanne {
     
     _id : Number | undefined
-    Zone : String | undefined
-    
+    Zone : zone | undefined
+    status : string | undefined
     Batterie : String | undefined
     Active: String | undefined
-    Sol: String | undefined
-    Externe : String | undefined
-    // NbPuit  : String | undefined
-    // NbPompe : String | undefined
-    // NbVanne : String | undefined
-    // Password  : String | undefined
-    // Points  : String | undefined
+    // mesure: mesure| undefined
+    // Sol: String | undefined
+    // Externe : String | undefined
+   
 }

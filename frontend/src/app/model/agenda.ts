@@ -1,3 +1,4 @@
+import { Pompe } from "./pompe"
 import { puit } from "./puit"
 
 export class Agenda {
@@ -7,4 +8,5 @@ export class Agenda {
     date_fin : String | undefined
     type : String | undefined
     puit: puit | undefined
+    pompe: Pompe | undefined
 }

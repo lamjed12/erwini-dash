@@ -1,3 +1,5 @@
+import { Agenda } from "./agenda"
+
 export class puit {
     
     _id : Number | undefined
@@ -6,8 +8,7 @@ export class puit {
     Pus : String | undefined
     Active: String | undefined
     Connection: String | undefined
-    date_Start : String | undefined
-    date_Fin : String | undefined
+    agendas: Agenda | undefined
     Security  : String | undefined
     Alert : String | undefined
     // NbVanne : String | undefined

@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { WhiteTestService } from './../../../services/white-test.service';
-import { white_test } from './../../../model/whiteTest';
+import { WhiteTestService } from '../../../services/historique.service';
+import { white_test } from '../../../model/historique';
 import { NgForm } from '@angular/forms';
 
 @Component({

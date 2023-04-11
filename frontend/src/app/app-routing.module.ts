@@ -4,7 +4,7 @@ import { NavbarComponent } from './user/shared/navbar/navbar.component';
 import { SidebarComponent } from './user/shared/sidebar/sidebar.component';
 import { DashbordComponent } from './user/pages/dashbord/dashbord.component';
 import { vannesComponent } from './user/pages/vannes/vannes.component';
-import { WhiteTestComponent } from './user/pages/white-test/white-test.component';
+import { HistoriquesComponent } from './user/pages/historiques/historiques.component';
 import { ProfilComponent } from './user/shared/profil/profil.component';
 import { LoginComponent } from './user/pages/login/login.component';
 
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'moteur',component: moteursComponent },
  
   { path: 'vanne', component: vannesComponent },
-  { path: 'white_test', component: WhiteTestComponent },
+  { path: 'historique', component: HistoriquesComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'login', component: LoginComponent },
 ];

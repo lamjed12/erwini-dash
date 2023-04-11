@@ -28,6 +28,7 @@
     "jquery-ui-dist": "^1.13.2",
     "ng-toggle-button": "^1.5.0",
     "ngx-bootstrap": "^10.2.0",
+    "ngx-csv": "^0.3.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
