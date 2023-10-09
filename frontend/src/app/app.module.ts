@@ -17,12 +17,14 @@ import { FormsModule }   from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { moteursComponent } from './user/pages/moteurs/moteurs.component';
 import { vannesComponent } from './user/pages/vannes/vannes.component';
-
-
+import { NotificationComponent } from './user/pages/notification/notification.component';
+import { MapComponent } from './user/pages/map/map.component';
+import { AgmCoreModule } from '@agm/core';
+// import { GoogleMapsModule } from '@angular/google-maps';
 
 // import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-
+import { AgmDrawingModule } from '@agm/drawing';
 
 // import { AgmCoreModule } from '@agm/core';
 
@@ -38,7 +40,9 @@ import { vannesComponent } from './user/pages/vannes/vannes.component';
     ProfilComponent,
     LoginComponent,
     HomeComponent,
-    HistoriquesComponent
+    HistoriquesComponent,
+    NotificationComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -47,8 +51,14 @@ import { vannesComponent } from './user/pages/vannes/vannes.component';
     FormsModule,
     // MatSlideToggleModule,
     BrowserModule,
-
+    // GoogleMapsModule,
     FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyADiM8Fxg6qgy2yef7CURfQ_bh2b4K5O2M',
+      libraries: ['drawing']
+    }),
+    AgmDrawingModule
+
     // AgmCoreModule.forRoot({
     //   // please get your own API key here:
     //   // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en

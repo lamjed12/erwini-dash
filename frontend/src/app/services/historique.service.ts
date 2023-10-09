@@ -16,7 +16,7 @@ export class HistoriqueService {
   }
 
   public addhistorique(claim: any): Observable<any> {
-    return this.http.post<historique>("http://localhost:8080/api/create/historiques", claim);
+    return this.http.post<historique>("http://localhost:8080/api/create/historique", claim);
   }
 
   public updatehistorique(claim: historique): Observable<historique> {

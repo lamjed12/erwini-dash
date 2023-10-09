@@ -19,8 +19,15 @@ export class vannesComponent implements OnInit {
   deleteCommand: any;
   addProduct: any;
   editMission: any;
-  temperatureValue: number = 25;
-  humidityValue: number = 50;
+
+    mesure: {
+      tem_sol: number;
+      humidity: number;
+    } | undefined;
+    // other properties related to the vanne object
+  
+  // temperatureValue: number = 25;
+  // humidityValue: number = 50;
   
   constructor(private vanneService: vanneService,) { }
   public isinputshown : boolean = false;
@@ -31,13 +38,19 @@ export class vannesComponent implements OnInit {
     ngOnInit(): void {
    this.getProduit();
   }
+  
 
   updateSensorData() {
-    // Call API to retrieve sensor values
-    // ...
-    // Once API returns data, update component properties
-    this.temperatureValue = 30;
-    this.humidityValue = 65;
+
+    mesure: {
+      tem_sol: Number;
+      // other properties related to mesures
+    };
+  //   // Call API to retrieve sensor values
+  //   // ...
+  //   // Once API returns data, update component properties
+  //   this.temperatureValue = 30;
+  //   this.humidityValue = 65;
   }
 
   public getProduit(): void {

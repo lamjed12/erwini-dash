@@ -1,11 +1,10 @@
 
 
-export class mesure {
-
-    _id: Number | undefined
-    tem_sol: String | undefined
-    tem_externe: String | undefined
-    hum_sol: String | undefined
-    hum_externe: String | undefined
-
-}
+export class Mesure {
+    _id: number | undefined;
+    tem_sol: string | undefined;
+    tem_externe: string | undefined;
+    hum_sol: string | undefined;
+    hum_externe: string | undefined;
+  }
+  

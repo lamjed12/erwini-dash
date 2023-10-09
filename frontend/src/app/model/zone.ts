@@ -1,5 +1,5 @@
 import { vanne } from "./vanne"
-import { mesure } from "./mesure"
+import { Mesure } from "./mesure"
 
 
 export class zone {
@@ -7,6 +7,6 @@ export class zone {
     _id: Number | undefined
     name: String | undefined
    vanne: vanne  | undefined
-   mesure: mesure | undefined
+   mesure: Mesure | undefined
 
 }

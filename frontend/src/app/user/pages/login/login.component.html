@@ -11,20 +11,21 @@
           <h2 class="title">Welcome</h2>
                <div class="input-div one">
                   <div class="i">
-                        <i class="fas fa-user"></i>
+                        <!-- <i class="fas fa-user"></i> -->
                   </div>
                   <div class="div">
-                        <h5>Username</h5>
-                        <input type="text" class="input">
+                       
+                     <input  matInput placeholder="Adresse e-mail ou numéro de tél." type="text" class="input" ngModel name="email">
                   </div>
                </div>
                <div class="input-div pass">
                   <div class="i"> 
-                      <i class="fas fa-lock"></i>
+                      <!-- <i class="fas fa-lock"></i> -->
                   </div>
                   <div class="div">
-                      <h5>Password</h5>
-                      <input type="password" class="input">
+                     
+                     <input matInput placeholder="Mot de passe" [type]="changetype?'password':'text'" class="input" ngModel   name="password">
+                     <span class="eyeicon" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i></span>
                 </div>
              </div>
              <input type="submit" class="btn" value="Login">

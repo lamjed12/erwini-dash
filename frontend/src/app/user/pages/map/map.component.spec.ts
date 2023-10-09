@@ -1,20 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WhiteTestComponent } from './white-test.component';
+import { MapComponent } from './map.component';
 
-describe('WhiteTestComponent', () => {
-  let component: WhiteTestComponent;
-  let fixture: ComponentFixture<WhiteTestComponent>;
+describe('MapComponent', () => {
+  let component: MapComponent;
+  let fixture: ComponentFixture<MapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WhiteTestComponent ]
+      declarations: [ MapComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(WhiteTestComponent);
+    fixture = TestBed.createComponent(MapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

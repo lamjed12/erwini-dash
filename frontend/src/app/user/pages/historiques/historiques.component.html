@@ -9,9 +9,12 @@
             <div class="col-md-12">
               <div class="page_title">
                 <h2>Historiques</h2>
-                
+                <div class="row height d-flex justify-content-end align-items-center">
+                  <button class="favorite styled" type="button" (click)="filedownload()">
+                    Click To Download
+                  </button>
+                </div>
               </div>
-              <button type="button" (click)="filedownload()">Click To Download</button>
             </div>
 
             <div class="table_section padding_infor_info">
@@ -31,9 +34,23 @@
                     <tr>
                       <!-- <td>{{historique._id}}</td> -->
                       <td>{{historique.num_zone}}</td>
-                      <td>{{historique.date}}</td>
-                      <td>{{historique.mesure.tem_sol }} </td>
-                      <td>{{historique.mesures.hum_sol}}</td>
+                      <td>{{historique.date | date:'yyyy-MM-ddTHH:mm'}}</td>
+                      <td>  
+                        <div class="sensor-data" *ngFor="let mesure of historique.mesures">
+                          <p>Temperature: {{ mesure.tem_sol }}°C</p>
+                          <p>Humidity: {{ mesure.hum_sol }}%</p>
+                        </div>
+                      </td>
+                      
+                      
+                      
+                      <td>
+                        
+                        <div class="sensor-data">
+                          <p>Temperature: {{ historique.mesure?.tem_externe }}°C</p>
+                          <p>Humidity:{{ historique.mesure?.hum_externe }}%</p>
+                        </div>
+                      </td>
 
 
 

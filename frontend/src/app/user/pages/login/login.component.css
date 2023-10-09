@@ -220,3 +220,13 @@ a:hover{
 		justify-content: center;
 	}
 }
+
+
+
+.eyeicon {
+	position: absolute;
+	right: 0px;
+	top: -5px;
+	font-size: 1.8rem;
+	cursor: pointer;
+}
